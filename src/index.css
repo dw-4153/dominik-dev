@@ -1754,6 +1754,47 @@ button.bento-item:focus-visible {
   }
 }
 
+/* Mobile project hero — portrait phone screenshots.
+   Uses contain on the foreground image so the whole screen stays visible,
+   with a blurred copy of the same screenshot as ambient backdrop. */
+.bento-modal-hero--mobile {
+  height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(8, 11, 15, 0.4), rgba(8, 11, 15, 0.85));
+}
+
+.bento-modal-hero--mobile .bento-modal-hero-img {
+  position: relative;
+  z-index: 1;
+  width: auto;
+  max-width: min(46%, 280px);
+  height: 100%;
+  max-height: 520px;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.55))
+          drop-shadow(0 0 1px rgba(74, 222, 128, 0.25));
+  border-radius: 22px;
+}
+
+.bento-modal-hero-backdrop {
+  position: absolute;
+  inset: -10%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(48px) saturate(1.2);
+  opacity: 0.45;
+  transform: scale(1.15);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bento-modal-hero--mobile .bento-modal-hero-fade {
+  z-index: 2;
+}
+
 .bento-modal-hero-fade {
   position: absolute;
   bottom: 0;
@@ -1805,6 +1846,22 @@ button.bento-item:focus-visible {
   border-color: var(--type-color);
 }
 .bento-modal-thumb--active img { opacity: 1; }
+
+/* Larger phone-aspect thumbs when the hero is in mobile gallery mode */
+.bento-modal-hero--mobile .bento-modal-thumbs {
+  bottom: 16px;
+  gap: 8px;
+  padding: 8px 10px;
+  z-index: 3;
+}
+.bento-modal-hero--mobile .bento-modal-thumb {
+  width: 52px;
+  height: 92px;
+  border-radius: 8px;
+}
+.bento-modal-hero--mobile .bento-modal-thumb img {
+  object-position: center top;
+}
 
 /* Body content */
 .bento-modal-body {
@@ -1961,6 +2018,16 @@ button.bento-item:focus-visible {
   .bento-modal-hero-img { max-height: 360px; }
 
   .bento-modal-hero--scrolling { --hero-h: 380px; }
+
+  .bento-modal-hero--mobile { height: 440px; }
+  .bento-modal-hero--mobile .bento-modal-hero-img {
+    max-width: min(58%, 240px);
+    max-height: 400px;
+  }
+  .bento-modal-hero--mobile .bento-modal-thumb {
+    width: 42px;
+    height: 74px;
+  }
 }
 
 @keyframes expp-pulse {

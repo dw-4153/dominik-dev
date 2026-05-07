@@ -290,7 +290,20 @@ function ProjectModal({ project, onClose, returnFocusRef }) {
           </button>
         </header>
 
-        <div className={`bento-modal-hero ${project.type === 'web' ? 'bento-modal-hero--scrolling' : ''}`}>
+        <div
+          className={[
+            'bento-modal-hero',
+            project.type === 'web' && 'bento-modal-hero--scrolling',
+            project.type === 'mobile' && 'bento-modal-hero--mobile',
+          ].filter(Boolean).join(' ')}
+        >
+          {project.type === 'mobile' && (
+            <div
+              className="bento-modal-hero-backdrop"
+              style={{ backgroundImage: `url(${heroImage})` }}
+              aria-hidden="true"
+            />
+          )}
           <img
             src={heroImage}
             alt=""
