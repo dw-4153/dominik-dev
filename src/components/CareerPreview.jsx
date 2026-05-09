@@ -9,7 +9,7 @@ const EVENTS = [
     type: 'work',
     title: '1stplace',
     subtitle: 'agencja marketingowa',
-    role: 'n8n Developer',
+    role: 'n8n Developer / Web Developer',
     period: 'Listopad 2025 — obecnie',
     duration: 'aktualnie',
     location: 'Poznań · hybrydowo',
